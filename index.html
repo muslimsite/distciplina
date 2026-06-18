@@ -81,11 +81,11 @@
     .about-grid { grid-template-columns: 1fr !important; justify-items: center; text-align: center; }
     .about-grid ul li { text-align: left; }
     .life-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 360px !important; }
-    .reviews-grid { grid-template-columns: 1fr !important; }
+    .reviews-grid { columns: 1 !important; }
     .extras-grid { grid-template-columns: repeat(2, minmax(0, 180px)) !important; }
   }
   @media (min-width: 761px) and (max-width: 1000px) {
-    .reviews-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .reviews-grid { columns: 2 !important; }
     .extras-grid { grid-template-columns: repeat(2, minmax(0, 200px)) !important; }
   }
 
@@ -328,7 +328,7 @@
   <section id="reviews" style="background: #100F12; border-top: 1px solid rgba(224,169,46,0.14); border-bottom: 1px solid rgba(224,169,46,0.14); scroll-margin-top: 80px;">
     <div class="wrap" style="padding: clamp(64px, 9vw, 120px) 0;">
       <p class="reveal up" style="text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #E6B23C; margin: 0 0 clamp(40px, 6vw, 64px);">Отзывы сестёр</p>
-      <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.2vw, 24px); align-items: start; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      <div class="reviews-grid" style="columns: 3; column-gap: clamp(16px, 2.2vw, 24px); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
 
         <blockquote class="reveal up" style="display: block; break-inside: avoid; margin: 0 0 clamp(16px, 2.2vw, 22px); background: #F4ECE8; border-radius: 18px 18px 18px 4px; padding: 20px 22px; color: #2A2825; font-size: 15.5px; line-height: 1.55;">
           Согласна с&nbsp;вами. Я&nbsp;человек, который, чтобы встать с&nbsp;места что-то сделать, слушала <span style="text-decoration: underline; text-decoration-color: #D14B4B; text-decoration-thickness: 2px; text-underline-offset: 3px;">тысячу мотивационных видео и&nbsp;подкастов</span>. А&nbsp;тут сегодня я&nbsp;и&nbsp;<span style="text-decoration: underline; text-decoration-color: #D14B4B; text-decoration-thickness: 2px; text-underline-offset: 3px;">убраться успела, и&nbsp;погулять с&nbsp;детьми, и&nbsp;спокойная такая</span>. Дай Аллах нам такого состояния души всю оставшуюся жизнь&nbsp;🤲
