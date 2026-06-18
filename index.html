@@ -73,6 +73,8 @@
     .nav-desktop { display: none !important; }
     .nav-burger { display: inline-flex !important; }
     .nav-cta { display: none !important; }
+    /* На мобильном шапка не прилипает к верху, а прокручивается со страницей — чтобы не перекрывала контент */
+    .site-header { position: static !important; }
   }
 
   @media (max-width: 760px) {
@@ -146,7 +148,7 @@
 <body>
 
   <!-- HEADER -->
-  <header style="position: sticky; top: 0; z-index: 50; background: rgba(10,10,12,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(224,169,46,0.18);">
+  <header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(10,10,12,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(224,169,46,0.18);">
     <div class="wrap-wide" style="display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 18px;">
       <a href="#top" style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; letter-spacing: 0.06em;" class="gold-text">Сёстрам</a>
 
@@ -282,7 +284,6 @@
             <li style="display: flex; gap: 14px; align-items: flex-start; font-size: clamp(15px, 1.9vw, 18px); line-height: 1.5; color: #C9C0B2;"><span style="flex: none; width: 8px; height: 8px; background: #E6B23C; transform: rotate(45deg); margin-top: 8px;"></span>Мама шестерых детей</li>
             <li style="display: flex; gap: 14px; align-items: flex-start; font-size: clamp(15px, 1.9vw, 18px); line-height: 1.5; color: #C9C0B2;"><span style="flex: none; width: 8px; height: 8px; background: #E6B23C; transform: rotate(45deg); margin-top: 8px;"></span><span>Создала образовательный сайт об&nbsp;Исламе для&nbsp;мусульманок <span style="color: #E6B23C;">Sestram.com</span></span></li>
             <li style="display: flex; gap: 14px; align-items: flex-start; font-size: clamp(15px, 1.9vw, 18px); line-height: 1.5; color: #C9C0B2;"><span style="flex: none; width: 8px; height: 8px; background: #E6B23C; transform: rotate(45deg); margin-top: 8px;"></span>Основала одноимённые страницы в&nbsp;соцсетях</li>
-            <li style="display: flex; gap: 14px; align-items: flex-start; font-size: clamp(15px, 1.9vw, 18px); line-height: 1.5; color: #C9C0B2;"><span style="flex: none; width: 8px; height: 8px; background: #E6B23C; transform: rotate(45deg); margin-top: 8px;"></span>Создала женский «Клуб Сёстрам» — 300&nbsp;сестёр ежемесячно, веду уже&nbsp;4,5&nbsp;года</li>
             <li style="display: flex; gap: 14px; align-items: flex-start; font-size: clamp(15px, 1.9vw, 18px); line-height: 1.5; color: #C9C0B2;"><span style="flex: none; width: 8px; height: 8px; background: #E6B23C; transform: rotate(45deg); margin-top: 8px;"></span>Руковожу командой из&nbsp;нескольких десятков человек</li>
           </ul>
           <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #E6B23C; margin: 0 0 14px;">Образование</p>
