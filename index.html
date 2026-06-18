@@ -69,6 +69,9 @@
   .nav-link-mobile { font-size: 16px; font-weight: 600; color: #E8E2D6; padding: 14px 4px; border-bottom: 1px solid rgba(224,169,46,0.10); }
   .nav-link-mobile:last-child { border-bottom: none; }
 
+  /* Карточки блока «Дополнительно»: фикс. ширина, чтобы в ряд помещалось 3, а последние 2 центрировались */
+  .extras-grid > div { flex: 0 1 200px; }
+
   @media (max-width: 860px) {
     .nav-desktop { display: none !important; }
     .nav-burger { display: inline-flex !important; }
@@ -82,11 +85,11 @@
     .about-grid ul li { text-align: left; }
     .life-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 360px !important; }
     .reviews-grid { columns: 1 !important; }
-    .extras-grid { grid-template-columns: repeat(2, minmax(0, 180px)) !important; }
+    .extras-grid > div { flex: 0 1 150px !important; }
   }
   @media (min-width: 761px) and (max-width: 1000px) {
     .reviews-grid { columns: 2 !important; }
-    .extras-grid { grid-template-columns: repeat(2, minmax(0, 200px)) !important; }
+    .extras-grid > div { flex: 0 1 180px !important; }
   }
 
   /* ===== ЭФФЕКТНОЕ ПОЯВЛЕНИЕ ЗАГОЛОВКА: вспышка + удар + тряска ===== */
@@ -476,7 +479,7 @@
   <section style="background: #100F12; border-top: 1px solid rgba(224,169,46,0.14); border-bottom: 1px solid rgba(224,169,46,0.14);">
     <div class="wrap" style="padding: clamp(64px, 9vw, 120px) 0;">
       <h2 class="reveal up" style="text-align: center; font-weight: 800; font-size: clamp(26px, 4.5vw, 44px); text-transform: uppercase; margin: 0 0 clamp(44px, 6vw, 68px);">Дополнительно</h2>
-      <div class="extras-grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 220px)); gap: clamp(18px, 2.5vw, 26px); margin-bottom: clamp(40px, 5vw, 56px); justify-content: center;">
+      <div class="extras-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(18px, 2.5vw, 26px); max-width: 720px; margin: 0 auto clamp(40px, 5vw, 56px);">
         <div class="reveal flyup card-hover" style="text-align: center; background: #201E27; border: 1px solid rgba(224,169,46,0.30); border-radius: 18px; padding: clamp(26px, 3vw, 36px) 18px;"><div style="color:#E6B23C; margin-bottom:14px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path></svg></div><span style="font-size: 15px; color: #F2EEE6; font-weight: 600;">Чат участниц</span></div>
         <div class="reveal flyup card-hover" style="text-align: center; background: #201E27; border: 1px solid rgba(224,169,46,0.30); border-radius: 18px; padding: clamp(26px, 3vw, 36px) 18px;"><div style="color:#E6B23C; margin-bottom:14px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path></svg></div><span style="font-size: 15px; color: #F2EEE6; font-weight: 600;">Рабочая тетрадь</span></div>
         <div class="reveal flyup card-hover" style="text-align: center; background: #201E27; border: 1px solid rgba(224,169,46,0.30); border-radius: 18px; padding: clamp(26px, 3vw, 36px) 18px;"><div style="color:#E6B23C; margin-bottom:14px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><span style="font-size: 15px; color: #F2EEE6; font-weight: 600;">Общение между сёстрами</span></div>
