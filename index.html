@@ -210,6 +210,17 @@
         <div style="background: #201E27; border: 1px solid rgba(224,169,46,0.35); border-radius: 16px; padding: clamp(18px, 2.4vw, 24px) 12px;"><span style="display:block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9C0B2; margin-bottom: 8px;">Уроки</span><span style="display:block; font-weight: 800; font-size: clamp(16px, 2vw, 21px); letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap;" class="gold-text">в&nbsp;Telegram</span></div>
       </div>
 
+      <!-- ТАЙМЕР ОБРАТНОГО ОТСЧЁТА ДО СТАРТА -->
+      <div class="reveal up" id="countdown" data-deadline="2026-06-22T00:00:00" style="max-width: 520px; margin: 0 auto clamp(34px, 5vw, 46px);">
+        <p style="font-size: clamp(11px, 1.5vw, 13px); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C9C0B2; margin: 0 0 16px;">До старта осталось</p>
+        <div id="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1.4vw, 14px);">
+          <div style="background: #201E27; border: 1px solid rgba(224,169,46,0.35); border-radius: 16px; padding: clamp(14px, 2vw, 20px) 6px;"><span data-cd="days" style="display:block; font-weight: 900; font-size: clamp(26px, 5vw, 44px); line-height: 1;" class="gold-text">00</span><span style="display:block; margin-top: 8px; font-size: clamp(10px, 1.3vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: #C9C0B2;">дней</span></div>
+          <div style="background: #201E27; border: 1px solid rgba(224,169,46,0.35); border-radius: 16px; padding: clamp(14px, 2vw, 20px) 6px;"><span data-cd="hours" style="display:block; font-weight: 900; font-size: clamp(26px, 5vw, 44px); line-height: 1;" class="gold-text">00</span><span style="display:block; margin-top: 8px; font-size: clamp(10px, 1.3vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: #C9C0B2;">часов</span></div>
+          <div style="background: #201E27; border: 1px solid rgba(224,169,46,0.35); border-radius: 16px; padding: clamp(14px, 2vw, 20px) 6px;"><span data-cd="minutes" style="display:block; font-weight: 900; font-size: clamp(26px, 5vw, 44px); line-height: 1;" class="gold-text">00</span><span style="display:block; margin-top: 8px; font-size: clamp(10px, 1.3vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: #C9C0B2;">минут</span></div>
+          <div style="background: #201E27; border: 1px solid rgba(224,169,46,0.35); border-radius: 16px; padding: clamp(14px, 2vw, 20px) 6px;"><span data-cd="seconds" style="display:block; font-weight: 900; font-size: clamp(26px, 5vw, 44px); line-height: 1;" class="gold-text">00</span><span style="display:block; margin-top: 8px; font-size: clamp(10px, 1.3vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: #C9C0B2;">секунд</span></div>
+        </div>
+      </div>
+
       <a href="#order" class="reveal up cta-glow" style="display: inline-block; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #0A0A0C; background: linear-gradient(135deg,#F8DA8C,#E6B23C); padding: 18px 48px; border-radius: 999px; box-shadow: 0 16px 40px rgba(224,169,46,0.28);">Записаться на&nbsp;курс</a>
 
       <div class="reveal up" style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 34px; color: #8E867A; font-size: 14px;">
@@ -734,7 +745,47 @@
     });
   }
 
-  function init() { initNav(); initReveal(); initCounters(); initQuiz(); initPayForm(); }
+  /* ===== ОБРАТНЫЙ ОТСЧЁТ ДО СТАРТА ===== */
+  function initCountdown() {
+    var root = document.getElementById('countdown');
+    if (!root) return;
+    var deadline = new Date(root.getAttribute('data-deadline')).getTime();
+    if (isNaN(deadline)) return;
+    var grid = document.getElementById('countdown-grid');
+    var fields = {
+      days: root.querySelector('[data-cd="days"]'),
+      hours: root.querySelector('[data-cd="hours"]'),
+      minutes: root.querySelector('[data-cd="minutes"]'),
+      seconds: root.querySelector('[data-cd="seconds"]')
+    };
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function tick() {
+      var diff = deadline - Date.now();
+      if (diff <= 0) {
+        if (grid) grid.style.display = 'none';
+        var label = root.querySelector('p');
+        if (label) {
+          label.className = 'gold-text';
+          label.style.cssText = 'font-weight:800; font-size:clamp(20px,3vw,30px); letter-spacing:0.04em; text-transform:uppercase; margin:0;';
+          label.textContent = 'Курс уже стартовал!';
+        }
+        clearInterval(timer);
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      if (fields.days) fields.days.textContent = pad(d);
+      if (fields.hours) fields.hours.textContent = pad(h);
+      if (fields.minutes) fields.minutes.textContent = pad(m);
+      if (fields.seconds) fields.seconds.textContent = pad(s);
+    }
+    tick();
+    var timer = setInterval(tick, 1000);
+  }
+
+  function init() { initNav(); initReveal(); initCounters(); initQuiz(); initPayForm(); initCountdown(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
