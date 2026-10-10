@@ -519,8 +519,12 @@
         <p class="reveal zoom gold-text" style="font-weight: 900; font-size: clamp(64px, 14vw, 150px); line-height: 1; margin: 0;">1 700 ₽</p>
       </div>
       <div class="reveal up" style="max-width: 480px; margin: 0 auto; text-align: center;">
-        <a id="pay-btn" href="https://monecle.com/buy/96767" target="_blank" rel="noopener" class="cta-glow" style="display: block; width: 100%; box-sizing: border-box; text-align: center; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: clamp(17px, 2.3vw, 20px); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 22px 28px; border: none; border-radius: 999px; background: linear-gradient(135deg,#F8DA8C,#E6B23C); color: #0A0A0C; cursor: pointer; box-shadow: 0 20px 50px rgba(224,169,46,0.32);">Оплатить 1&nbsp;700&nbsp;₽</a>
-        <p style="font-size: 14px; color: #8E867A; margin: 22px 0 0;">Нажмите «Оплатить»&nbsp;— откроется безопасная форма оплаты. Доступ к&nbsp;интенсиву придёт на&nbsp;вашу почту сразу после оплаты.</p>
+        <p style="font-size: clamp(17px, 2.3vw, 20px); font-weight: 700; color: #F2EEE6; margin: 0 0 22px;">Для записи свяжитесь с&nbsp;менеджером</p>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <a id="manager-tg-btn" href="https://t.me/kurs_po_vospitaniyu" target="_blank" rel="noopener" class="cta-glow" style="display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; box-sizing: border-box; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: clamp(16px, 2.2vw, 19px); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 20px 28px; border-radius: 999px; cursor: pointer; border: none; background: linear-gradient(135deg,#F8DA8C,#E6B23C); color: #0A0A0C; box-shadow: 0 20px 50px rgba(224,169,46,0.32);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4 11 13"></path><path d="M22 4 15 21l-4-8-8-4 19-5Z"></path></svg>Написать в&nbsp;Telegram</a>
+          <a id="manager-wa-btn" href="https://wa.me/79832403924" target="_blank" rel="noopener" class="cta-glow" style="display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; box-sizing: border-box; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: clamp(16px, 2.2vw, 19px); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 20px 28px; border-radius: 999px; cursor: pointer; border: 1px solid rgba(224,169,46,0.55); background: #201E27; color: #F2EEE6;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E6B23C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8A9 9 0 1 1 7.6 20.1L3 21"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></svg>Написать в&nbsp;WhatsApp</a>
+        </div>
+        <p style="font-size: 14px; color: #8E867A; margin: 22px 0 0;">Менеджер ответит на&nbsp;вопросы и&nbsp;поможет записаться на&nbsp;интенсив. WhatsApp: <span style="white-space: nowrap;">+7 (983) 240-39-24</span></p>
       </div>
     </div>
   </section>
@@ -721,7 +725,7 @@
 
   /* ===== PAY FORM ===== */
   function initPayForm() {
-    /* Кнопка оплаты теперь обычная ссылка на monecle.com — JS не нужен */
+    /* Вместо оплаты — кнопки связи с менеджером (Telegram / WhatsApp) */
   }
 
   /* ===== MOBILE NAV ===== */
